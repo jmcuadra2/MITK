@@ -33,8 +33,8 @@ See LICENSE.txt or http://www.mitk.org for details.
 
 /**
  * Returns the memory usage of the current process in bytes.
- * On linux, this refers to the virtual memory allocated by
- * the process (the VIRT column in top).
+ * On linux, this refers to the resident memory allocated by
+ * the process (the RES column in top).
  * On windows, this refery to the size in bytes of the working
  * set pages (the "Speicherauslastung" column in the task manager).
  */
