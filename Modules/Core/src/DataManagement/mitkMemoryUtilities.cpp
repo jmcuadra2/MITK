@@ -30,7 +30,6 @@ See LICENSE.txt or http://www.mitk.org for details.
   #include <unistd.h>
 #endif
 
-
 /**
  * Returns the memory usage of the current process in bytes.
  * On linux, this refers to the resident memory allocated by
@@ -69,7 +68,6 @@ size_t mitk::MemoryUtilities::GetProcessMemoryUsage()
   return 0;
 }
 
-
 /**
  * Returns the total size of phyiscal memory in bytes
  */
@@ -99,16 +97,20 @@ size_t mitk::MemoryUtilities::GetTotalSizeOfPhysicalRam()
 
 #ifndef _MSC_VER
 #ifndef __APPLE__
-int mitk::MemoryUtilities::ReadStatmFromProcFS( int* size, int* res, int* shared, int* text, int* sharedLibs, int* stack, int* dirtyPages )
+int mitk::MemoryUtilities::ReadStatmFromProcFS(
+    int* size, int* res, int* shared, int* text, int* sharedLibs, int* stack, int* dirtyPages )
 {
   int ret = 0;
   FILE* f;
   f = fopen( "/proc/self/statm", "r" );
-  if( f ) {
+  if( f )
+  {
     size_t ignored = fscanf( f, "%d %d %d %d %d %d %d", size, res, shared, text, sharedLibs, stack, dirtyPages );
                 ++ignored;
     fclose( f );
-  } else {
+  } 
+  else
+  {
     ret = -1;
   }
   return ret;
